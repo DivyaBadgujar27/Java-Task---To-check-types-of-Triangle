@@ -1,0 +1,57 @@
+import java.io.DataInputStream;
+import java.io.IOException;
+
+class TypesOfTriangle
+{
+	public static void main (String args [])
+	{
+		int s1=0,s2=0,s3=0;
+		DataInputStream d = new DataInputStream(System.in);
+		System.out.print("To check types of Triangle");
+		try
+		{
+			System.out.print("\n\nEnter side 1 = ");
+			s1 = Integer.parseInt(d.readLine());
+			System.out.print("\n\nEnter side 2 = ");
+			s2 = Integer.parseInt(d.readLine());
+			System.out.print("\n\nEnter side 3 = ");
+			s3 = Integer.parseInt(d.readLine());
+		}
+		catch(IOException ioe) { }
+		if(s1 <= 0 || s2 <=0 || s3<= 0)
+		{
+			System.out.print("\n\nPLease Enter Valid Sides");
+		}
+		else
+		{
+			if(s1 >= s2+s3 || s2 >= s1+s3 || s3 >= s2+s1)
+			{
+				System.out.print("\n\nTriangle is not Valid");
+			}
+			else
+			{
+				if(s1 == s2 && s2 == s3)
+				{
+					System.out.print("\n\nEquilateral Triangle");
+				}
+				else
+				{
+					if(s1==s2 || s2==s3 || s3==s1)
+					{
+						System.out.print("\n\nIsosales Triangle");
+					}
+					else
+					{
+						if((s1*s1)+(s2*s2)==(s3*s3) || (s2*s2)+(s3*s3)==(s1*s1) || (s1*s1)+(s3*s3)==(s2*s2))
+						{
+							System.out.print("\n\nRight - Angled Triangle");
+						}
+						else
+							System.out.print("\n\nScalene Triangle");
+					}
+				}
+			}
+		}
+		System.out.print("\n\n");
+	}
+}
